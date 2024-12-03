@@ -1,0 +1,14 @@
+Mall:
+
+
+**** - ** - **
+[   
+    Vad gjorde jag föra gången?
+
+    Vad ska du göra idag?
+
+    Finns det något som hindrar dig?
+
+    Behöver jag hjälp med något?
+    
+]

@@ -1,0 +1,17 @@
+
+ 2024 - 12 - 02
+[
+    Vad gjorde jag föra gången?
+        Började arbetet, och skapade en enkel "boarder" funkar bara på x,y = 0
+
+    Vad ska du göra idag?
+        Göra en border som fungerar och fixa så att "fienderna" föjler spelaren
+
+    Finns det något som hindrar dig?
+        Kännedom om saker
+
+    Behöver jag hjälp med något?
+        Inte som jag vet. 
+
+
+]
