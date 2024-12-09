@@ -7,6 +7,8 @@ export default class Background {
     this.height = 500
 
     
+    this.bg = new Image()
+    this.bg.src = "./src/assets/shovel/vintrigskogBG.png"
 
     this.fg = new Image()
     this.fg.src = "./src/assets/shovel/vintrigskogFG.png"

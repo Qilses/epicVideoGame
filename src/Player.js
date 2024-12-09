@@ -2,23 +2,20 @@ import GameObject from "./GameObject"
 
 export default class Player extends GameObject {
   constructor(game) {
-    super(game, 0, 0, 128*0.8, 128*0.8, "#fff", 5)
+    super(game, 0, 0, 128 * 1.4, 128 * 0.8, "#fff", 5)
 
     this.image = new Image()
-    this.image.src = "./src/assets/AnimationSheet_Character.png"
+    this.image.src = "./src/assets/shovel/grabbmedspade.png"
 
     this.speedX = 0
     this.speedY = 0
 
-    this.frameWidth = 32
-    this.frameHeight = 32
+    this.frameWidth = 380
+    this.frameHeight = 260
     this.frameX = 0
     this.frameY = 0
     this.flip = false
-    this.maxFrames = 8
-    this.fps = 10
-    this.timer = 0
-    this.interval = 1000 / this.fps
+ 
   }
 
   update(deltaTime) {
@@ -40,7 +37,7 @@ export default class Player extends GameObject {
       this.speedY = 0
     }
 
-    if (this.speedX !== 0 || this.speedY !== 0) {
+   /* if (this.speedX !== 0 || this.speedY !== 0) {
       this.frameY = 3
       this.maxFrames = 8
      
@@ -49,7 +46,7 @@ export default class Player extends GameObject {
       this.maxFrames = 2
       
     }
-
+*/
     this.x += this.speedX
     this.y += this.speedY
 
@@ -66,15 +63,15 @@ export default class Player extends GameObject {
 
       
    
-    
+    //boarder
     function boarderCollison(x, y) {
-      return x < -30 || y < -13 || x >827 || y >398;
+      return x < 0 || y < 0 || x >720 || y >396;
     } 
       if (boarderCollison(this.x, this.y)) {
-      if (this.x < -30) this.x = -30;         // Sätter gräns vid 0 på vänster sida
-      if (this.y < -13) this.y = -13;         // Sätter gräns vid 0 på toppen
-      if (this.x > 827) this.x = 827;     // Sätter gräns vid 800 på höger sida
-      if (this.y > 398) this.y = 398;   
+      if (this.x < 0) this.x = 0;         // Sätter gräns vid 0 på vänster sida
+      if (this.y < 0) this.y = 0;         // Sätter gräns vid 0 på toppen
+      if (this.x > 720) this.x = 720;     // Sätter gräns vid 800 på höger sida
+      if (this.y > 396) this.y = 396;   
       }
 
   }

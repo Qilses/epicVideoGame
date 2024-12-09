@@ -1,0 +1,14 @@
+2024 - 12 - 09
+[   
+    Vad gjorde jag föra gången?
+    Fixade en boarder, fick mina fiender att spawna men de har ingen grafik så de funkade inte som tanken.
+
+    Vad ska du göra idag?
+    Fixa fienden och "spawn points"
+
+    Finns det något som hindrar dig?
+    Vet inte hur jag ska göra.
+
+    Behöver jag hjälp med något?
+    kanske får see. 
+]

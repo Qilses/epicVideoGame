@@ -20,22 +20,13 @@ export default class Game {
 
     this.player = new Player(this)
 
-
-    this.gameObjects = [
-      new GameObject(this, 0, 100, 20, 20, '#f00', 100),
-      new GameObject(this, 0, 200, 20, 20, '#0f0', 200),
-      new GameObject(this, 0, 300, 20, 20, '#00f', 300)
-    ]
   }
 
   update(deltaTime) {
     this.background.update(deltaTime)
-    this.gameObjects.forEach(gameObject => {
-      gameObject.update(deltaTime)
-    })
     this.player.update(deltaTime)
     
-    if (this.enemiesTimer < this.enemiesInterval) {
+    if (this.enemiesTimer < this.enemiesInterval && Math.random() < 0.04) {
       this.addEnemy()
       this.enemiesTimer = 0
     } else {
@@ -50,17 +41,13 @@ export default class Game {
     this.background.draw(ctx)
     this.player.draw(ctx)
 
-    this.gameObjects.forEach(gameObject => {
-      gameObject.draw(ctx)
-    })
-
     this.enemies.forEach(Enemy =>{
       Enemy.draw(ctx)
     })
   }
 
-  addEnemy(){
-    console.log("ny bjorn")
+  addEnemy(enemiesInterval){
+   
     this.enemies.push(new Isbjorn(this))
   }
 }
