@@ -42,7 +42,7 @@ export class Isbjorn extends Enemy {
         this.game = game
         
         this.width = 100
-        this.height = 100
+        this.height = 60
         this.x = Math.random() * (this.game.width - this.width);
         this.y = Math.random() * this.game.height
         this.speedX = Math.random() + 1
@@ -53,7 +53,6 @@ export class Isbjorn extends Enemy {
         
         this.image = new Image()    
         this.image.src = "./src/assets/shovel/isbjörn.png"
-
        
     }
     update(deltaTime){

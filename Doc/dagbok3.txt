@@ -1,0 +1,15 @@
+2024-12-16
+[   
+    Vad gjorde jag föra gången?
+    fixade gubben + fiender
+
+    Vad ska du göra idag?
+    göra attack fungerande gubbe
+
+    Finns det något som hindrar dig?
+    kundskap 
+
+    Behöver jag hjälp med något?
+    Varför är min currentState undefined men min State är defined....
+    
+]

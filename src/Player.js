@@ -1,21 +1,31 @@
 import GameObject from "./GameObject"
+import {Attack} from "./playerAttack.js"
 
 export default class Player extends GameObject {
   constructor(game) {
     super(game, 0, 0, 128 * 1.4, 128 * 0.8, "#fff", 5)
 
+    //Vilken bild vi andvänder till spelaren 
     this.image = new Image()
     this.image.src = "./src/assets/shovel/grabbmedspade.png"
 
+    //spelarens constanta hastighet "vanlight" vis
     this.speedX = 0
     this.speedY = 0
 
+    //Spelarens storlek 
     this.frameWidth = 380
     this.frameHeight = 260
     this.frameX = 0
     this.frameY = 0
     this.flip = false
- 
+    
+    //Spelarens attack animation kod etc  
+    this.state = [];
+    this.currentState = this.state[0];
+    console.log(this.currentState, this.state)
+    this.currentState.enter();
+
   }
 
   update(deltaTime) {
@@ -37,7 +47,9 @@ export default class Player extends GameObject {
       this.speedY = 0
     }
 
-   /* if (this.speedX !== 0 || this.speedY !== 0) {
+   
+/* 
+    if (this.speedX !== 0 || this.speedY !== 0) {
       this.frameY = 3
       this.maxFrames = 8
      
@@ -65,10 +77,10 @@ export default class Player extends GameObject {
    
     //boarder
     function boarderCollison(x, y) {
-      return x < 0 || y < 0 || x >720 || y >396;
+      return x < -54 || y < 0 || x >720 || y >396;
     } 
       if (boarderCollison(this.x, this.y)) {
-      if (this.x < 0) this.x = 0;         // Sätter gräns vid 0 på vänster sida
+      if (this.x < -54) this.x = -54;         // Sätter gräns vid 0 på vänster sida
       if (this.y < 0) this.y = 0;         // Sätter gräns vid 0 på toppen
       if (this.x > 720) this.x = 720;     // Sätter gräns vid 800 på höger sida
       if (this.y > 396) this.y = 396;   

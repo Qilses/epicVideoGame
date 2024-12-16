@@ -26,9 +26,10 @@ export default class Game {
     this.background.update(deltaTime)
     this.player.update(deltaTime)
     
-    if (this.enemiesTimer < this.enemiesInterval && Math.random() < 0.04) {
+    if (this.enemiesTimer < this.enemiesInterval && Math.random() < 0.06) {
       this.addEnemy()
       this.enemiesTimer = 0
+      console.log("Bear")
     } else {
       this.enemiesTimer += deltaTime
     } 
