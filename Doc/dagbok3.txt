@@ -10,6 +10,6 @@
     kundskap 
 
     Behöver jag hjälp med något?
-    Varför är min currentState undefined men min State är defined....
+    Varför är min currentState undefined men min State är defined
     
 ]

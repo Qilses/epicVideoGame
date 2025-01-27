@@ -22,10 +22,10 @@ export default class Player extends GameObject {
     
     //Spelarens attack animation kod etc  
     this.state = [];
-    this.currentState = this.state[0];
-    console.log(this.currentState, this.state)
-    this.currentState.enter();
+    this.currentState = this.state[0]
+    console.log(currentState, enter())
 
+    this.currentState.enter();
   }
 
   update(deltaTime) {
