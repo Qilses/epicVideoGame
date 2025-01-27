@@ -4,7 +4,7 @@ export function setup(canvas) {
   const ctx = canvas.getContext('2d') // Skapar en 2d-kontext för att rita på canvas
   // 16:9 aspect ratio
   canvas.width = 900 // sätt bredden på canvas
-  canvas.height = 572  // sätt höjden på canvas
+  canvas.height = 600  // sätt höjden på canvas
 
   const game = new Game(canvas.width, canvas.height)
   let lastTime = 0

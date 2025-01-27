@@ -1,3 +1,4 @@
+
 const state = {
     WALKING: 0,
     ATTACK: 1

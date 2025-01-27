@@ -3,6 +3,8 @@ import GameObject from "./GameObject.js"
 import InputHandler from "./InputHandler.js"
 import Player from "./Player.js"
 import { Isbjorn, Korp } from "./Enemy.js"
+import UserInterface from "./UserInterface.js"
+
 
 export default class Game {
   constructor(width, height) {
@@ -18,7 +20,11 @@ export default class Game {
 
     this.debug = false
 
+    //Laser.com
+    this.projectiles = []
+    
     this.player = new Player(this)
+    this.numberOfMuladeBjörnar = 0
 
   }
 
@@ -37,10 +43,45 @@ export default class Game {
         enemy.update(deltaTime)
 
       })
+      //fein
+      this.enemies.forEach((enemy) => {
+        enemy.update(deltaTime)
+        if (this.checkCollision(enemy, this.player)) {  
+          enemy.markedForDeletion = true
+          this.numberOfMuladeBjörnar++
+        }
+      })
+
+      //laser.com
+      this.projectiles.forEach((projectile) => {
+        projectile.update(deltaTime)
+      })
+      this.projectiles.forEach((projectile) => {
+        this.enemies.forEach((enemy) => {
+          if (this.checkCollision(projectile, enemy)) {
+            this.score += 10
+            projectile.markedForDeletion = true
+            enemy.markedForDeletion = true
+          }
+        })
+      })
+      this.projectiles = this.projectiles.filter((p) => !p.markedForDeletion)
+      this.enemies = this.enemies.filter((e) => !e.markedForDeletion)
+    
   }
   draw(ctx) {
     this.background.draw(ctx)
     this.player.draw(ctx)
+
+    console.log(this.userInterface);
+    if (this.userInterface) { 
+      this.userInterface.draw(ctx);
+  } else {
+      console.error("User Interface is not defined");
+  }
+    this.projectiles.forEach((projectile) => {
+      projectile.draw(ctx)
+    })
 
     this.enemies.forEach(Enemy =>{
       Enemy.draw(ctx)
@@ -50,5 +91,11 @@ export default class Game {
   addEnemy(enemiesInterval){
    
     this.enemies.push(new Isbjorn(this))
+  }
+  checkCollision(a, b) {
+    return a.x < b.x + b.width &&
+      a.x + a.width > b.x &&
+      a.y < b.y + b.height &&
+      a.y + a.height > b.y
   }
 }

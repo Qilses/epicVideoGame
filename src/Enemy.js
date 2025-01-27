@@ -1,6 +1,4 @@
-
 class Enemy {
-    
     constructor(){
         
         this.frameX = 0
@@ -45,7 +43,7 @@ export class Isbjorn extends Enemy {
         this.height = 60
         this.x = Math.random() * (this.game.width - this.width);
         this.y = Math.random() * this.game.height
-        this.speedX = Math.random() + 1
+        this.speedX = 0
         this.speedY = 0
         this.maxFrame = 5
         this.angle = 0

@@ -1,0 +1,14 @@
+
+2025 - 01 - 27
+[   
+    Vad gjorde jag föra gången?
+    typ inget
+
+    Vad ska du göra idag?
+    Allt jag inte gjorde föra veckan.
+
+    Det finns ett problem med score systmet, fixa det. animation kan du skippa om du inte är helt klar.
+     Fixa backgrund och träden så att det finns mer saker att kolla på, Fiender kan  du också lägga till. 
+    
+    
+]
