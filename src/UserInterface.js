@@ -22,7 +22,7 @@ export default class UserInterface {
   
       ctx.fillStyle = "white"
       ctx.font = "20px Arial"
-      ctx.fillText(`Number på mulade isbjörnar: ${this.game.numberOfMuladeBjörnar}`, 20, 40)
+      ctx.fillText(`Num av mulade isbjörnar: ${this.game.numberOfMuladeBjörnar}`, 20, 40)
   
       ctx.fillStyle = "white"
       ctx.font = "20px Arial"

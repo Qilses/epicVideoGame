@@ -23,7 +23,7 @@ export class Attack extends State {
    
     }
     handleInput(input){
-        if (input.includes('e')) {
+        if (input.includes(' ')) {
            this.player.setState(state.ATTACK); 
         }
 

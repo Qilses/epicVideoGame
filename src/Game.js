@@ -12,20 +12,24 @@ export default class Game {
     this.height = height
     this.background = new Background(this)
     this.keys = new Set()
-    new InputHandler(this)
-    
-    this.enemies = []
-    this.enemiesTimer = 0
-    this.enemiesInterval = 1000
-
-    this.debug = false
+    this.input = new InputHandler(this)
 
     //Laser.com
     this.projectiles = []
-    
-    this.player = new Player(this)
-    this.numberOfMuladeBjörnar = 0
 
+    //Fein
+    this.enemies = []
+    this.enemiesTimer = 1
+    this.enemiesInterval = 1000
+
+    //Scoreboard 
+    this.ui = new UserInterface(this)
+    this.numberOfMuladeBjörnar = 0
+    this.elapsedTime = 0
+
+    this.debug = false
+
+    this.player = new Player(this)
   }
 
   update(deltaTime) {
@@ -43,7 +47,7 @@ export default class Game {
         enemy.update(deltaTime)
 
       })
-      //fein
+      //Fein
       this.enemies.forEach((enemy) => {
         enemy.update(deltaTime)
         if (this.checkCollision(enemy, this.player)) {  
@@ -52,7 +56,7 @@ export default class Game {
         }
       })
 
-      //laser.com
+      //Laser.com
       this.projectiles.forEach((projectile) => {
         projectile.update(deltaTime)
       })
@@ -72,13 +76,8 @@ export default class Game {
   draw(ctx) {
     this.background.draw(ctx)
     this.player.draw(ctx)
+    this.ui.draw(ctx)
 
-    console.log(this.userInterface);
-    if (this.userInterface) { 
-      this.userInterface.draw(ctx);
-  } else {
-      console.error("User Interface is not defined");
-  }
     this.projectiles.forEach((projectile) => {
       projectile.draw(ctx)
     })
@@ -89,8 +88,8 @@ export default class Game {
   }
 
   addEnemy(enemiesInterval){
-   
     this.enemies.push(new Isbjorn(this))
+    
   }
   checkCollision(a, b) {
     return a.x < b.x + b.width &&

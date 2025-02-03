@@ -1,5 +1,4 @@
 import GameObject from "./GameObject"
-import { Attack } from "./playerAttack.js"
 import Projectile from "./Projectile";
 import UserInterface from "./UserInterface.js"
 
@@ -16,18 +15,29 @@ export default class Player extends GameObject {
     this.speedX = 0
     this.speedY = 0
 
+    this.health = 100
+    
     //Spelarens storlek 
     this.frameWidth = 200
     this.frameHeight = 223
     this.frameX = 0
     this.frameY = 0
     this.flip = false
+    this.maxFrames = 0
+    this.timer = 0
+    this.fps = 10 
+    this.interval = 1000 / this.fps
+
+
    
-    console.log(this.Player)
+    this.attackDelay = 0
+    this.attackInterval = 100
+   
   }
   
 
   update(deltaTime) {
+  
     if (this.game.keys.has("ArrowLeft")) {
       this.speedX = -this.maxSpeed
       this.flip = true
@@ -48,13 +58,19 @@ export default class Player extends GameObject {
 
     if (this.game.keys.has(" ")) {
       this.attack()
+      this.frameY = 1;
+      this.maxFrames = 2;
+    } else {
+      this.frameY = 0;
+      this.maxFrames = 1;
     }
+    
 
     this.x += this.speedX
     this.y += this.speedY
 
     if (this.timer > this.interval) {
-      this.frameX--
+      this.frameX++
       this.timer = 0
     } else {
       this.timer += deltaTime
@@ -64,28 +80,30 @@ export default class Player extends GameObject {
       this.frameX = 0
     }
 
-
-
+ 
     //boarder
     function boarderCollison(x, y) {
-      return x < -54 || y < 0 || x > 720 || y > 510;
+      return x < -54 || y < 0 || x > 930 || y > 500;
     }
 
     if (boarderCollison(this.x, this.y)) {
       if (this.x < -54) this.x = -54;         // Sätter gräns vid 0 på vänster sida
       if (this.y < 0) this.y = 0;         // Sätter gräns vid 0 på toppen
-      if (this.x > 720) this.x = 720;     // Sätter gräns vid 800 på höger sida
-      if (this.y > 510) this.y = 510;
+      if (this.x > 930) this.x = 930;     // Sätter gräns vid 800 på höger sida
+      if (this.y > 500) this.y = 500;
     }
-
+    
+    if (this.attackDelay > 0) {
+      this.attackDelay -= deltaTime
+    }
   }
 
-
   attack() {
-    console.log("svinga spade")
-    if (this.attackDelay > 0) return
+    console.log("Spade")
+
+    if (this.attackDelay > 0) return;
   
-    this.attackDelay = this.attackInterval
+    this.attackDelay = this.attackInterval;
 
     this.game.projectiles.push(
       new Projectile(
@@ -97,6 +115,7 @@ export default class Player extends GameObject {
       )
     )
   }
+
 
 
   draw(ctx) {
@@ -125,5 +144,10 @@ export default class Player extends GameObject {
     if (this.flip) {
       ctx.restore();
     }
+
+
+  
+
   }
 }
+
