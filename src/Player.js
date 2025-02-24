@@ -87,9 +87,9 @@ export default class Player extends GameObject {
     }
 
     if (boarderCollison(this.x, this.y)) {
-      if (this.x < -54) this.x = -54;         // Sätter gräns vid 0 på vänster sida
-      if (this.y < 0) this.y = 0;         // Sätter gräns vid 0 på toppen
-      if (this.x > 930) this.x = 930;     // Sätter gräns vid 800 på höger sida
+      if (this.x < -54) this.x = -54;         // Sätter gräns vid -54px på vänster sida
+      if (this.y < 0) this.y = 0;         // Sätter gräns vid 0px på toppen
+      if (this.x > 930) this.x = 930;     // Sätter gräns vid 930px på höger sida
       if (this.y > 500) this.y = 500;
     }
     
