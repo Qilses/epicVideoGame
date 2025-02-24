@@ -2,7 +2,7 @@ import Background from "./Background.js"
 import GameObject from "./GameObject.js"
 import InputHandler from "./InputHandler.js"
 import Player from "./Player.js"
-import { Isbjorn, Korp } from "./Enemy.js"
+import { Isbjorn } from "./Enemy.js"
 import UserInterface from "./UserInterface.js"
 
 
@@ -10,7 +10,7 @@ export default class Game {
   constructor(width, height) {
     this.width = width
     this.height = height
-    this.background = new Background(this)
+    // this.background = new Background(this)
     this.keys = new Set()
     this.input = new InputHandler(this)
 
@@ -74,7 +74,7 @@ export default class Game {
     
   }
   draw(ctx) {
-    this.background.draw(ctx)
+    // this.background.draw(ctx)
     this.player.draw(ctx)
     this.ui.draw(ctx)
 
