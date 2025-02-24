@@ -43,6 +43,8 @@ class Enemy {
     }    
 }
 
+import isbjornsbild from "./assets/shovel/isbjörn.png"
+
 export class Isbjorn extends Enemy {
     constructor (Game) {
         super ();
@@ -61,7 +63,7 @@ export class Isbjorn extends Enemy {
 
         
         this.image = new Image()    
-        this.image.src = "./src/assets/shovel/isbjörn.png"      
+        this.image.src = isbjornsbild     
  
     }
     draw(ctx) {

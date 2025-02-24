@@ -1,7 +1,7 @@
 import GameObject from "./GameObject"
 import Projectile from "./Projectile";
 import UserInterface from "./UserInterface.js"
-
+import grabbSpde from "./assets/shovel/grabbmedspade_shema.png"
 
 export default class Player extends GameObject {
   constructor(game) {
@@ -9,7 +9,7 @@ export default class Player extends GameObject {
 
     //Vilken bild vi andvänder till spelaren 
     this.image = new Image()
-    this.image.src = "./src/assets/shovel/grabbmedspade_shema.png"
+    this.image.src = grabbSpde
 
     //spelarens constanta hastighet "vanlight" vis
     this.speedX = 0
