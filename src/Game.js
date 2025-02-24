@@ -33,7 +33,7 @@ export default class Game {
   }
 
   update(deltaTime) {
-    this.background.update(deltaTime)
+    // this.background.update(deltaTime)
     this.player.update(deltaTime)
     
     if (this.enemiesTimer < this.enemiesInterval && Math.random() < 0.06) {
