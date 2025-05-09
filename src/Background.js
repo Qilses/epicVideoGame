@@ -1,4 +1,7 @@
 import Layer from "./Layer"
+import VinterSkogFG from ".assets/shovel/vintrigskogFG.png"
+import VinterSkogMG from "./src/assets/shovel/VintrigskogMG.png"
+
 
 export default class Background {
   constructor(game) {
@@ -7,15 +10,11 @@ export default class Background {
     this.height = 500
 
     
-    this.bg = new Image()
-    this.bg.src = "./src/assets/shovel/vintrigskogBG.png"
 
     this.fg = new Image()
-    this.fg.src = "./src/assets/shovel/vintrigskogFG.png"
-    this.gl = new Image()
-    this.gl.src = "./src/assets/shovel/vintrigskogBG.png"
-    this.ml = new Image()
-    this.ml.src = "./src/assets/shovel/VintrigskogMG.png"
+    this.fg.src = VinterSkogFG
+    this.mg = new Image()
+    this.mg.src = VinterSkogMG
 
     this.backgroundLayers = [
       new Layer(this.game, this.width, this.height, 0.2, this.ml),

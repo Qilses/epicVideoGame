@@ -1,8 +1,8 @@
 import Player from "./Player"
 
 class Enemy {
-    constructor() {
-
+    constructor(){
+        
         this.frameX = 0
         this.frameY = 0
         this.flip = false;
@@ -12,23 +12,23 @@ class Enemy {
 
         //Spelare aHAHA
         this.player = new Player(this)
-        // Enemy Position & Speed
-        this.x = 0;
-        this.y = 0;
-        this.speed = 2; // Adjust for faster movement
-        this.rotation = 0;
+         // Enemy Position & Speed
+         this.x = 0;
+         this.y = 0;
+         this.speed = 2; // Adjust for faster movement
+         this.rotation = 0;
     }
-    update() {
+    update (){
         //rörelser
         this.x += this.speedX
         this.y += this.speedY
-        if (this.timer < this.interval) {
+        if (this.timer < this.interval)  {
             this.timer = 0
             if (this.frameX < this.maxFrame) this.frameX++;
             else this.frameX = 0
-        } else {
+        }else{
             this.frameTimer += deltatime;
-        }
+        }    
 
     }
     draw(ctx) {
@@ -39,15 +39,15 @@ class Enemy {
             this.width,
             this.height
         );
-
-    }
+      
+    }    
 }
 
 import isbjornsbild from "./assets/shovel/isbjörn.png"
 
 export class Isbjorn extends Enemy {
-    constructor(Game) {
-        super();
+    constructor (Game) {
+        super ();
         this.game = game
 
         this.width = 100
@@ -58,17 +58,16 @@ export class Isbjorn extends Enemy {
         this.speedY = 0
         this.angle = 0
         this.va = Math.random() * 0.1 + 0.1
+       
+       //Bug check :)
 
-        //Bug check :)
-
-
-        this.image = new Image()
-        this.image.src = isbjornsbild
-
+        
+        this.image = new Image()    
+        this.image.src = isbjornsbild     
+ 
     }
     draw(ctx) {
-        ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
-    }
-
+            ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+        }
 
 }

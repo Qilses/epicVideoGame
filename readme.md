@@ -1,3 +1,13 @@
+# SpelInfo
+{
+    "team": "Axel, Robin, Marcus, Matilda, Alice",
+    "creators": "Robin",
+    "title": "Beat it with a shovel (Deluxe Edition)",
+    "description": "Mula isbjornar med en spade och se hur många du kan mula.",
+    "image": "",
+    "url": "[https till färdiga spel](https://qilses.github.io/epicVideoGame/)",
+    "git": "[https till git repo med spelet](https://github.com/Qilses/epicVideoGame)"
+},
 # Spelmotor
 
 ## Spelaren och grafik
